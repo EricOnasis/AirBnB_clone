@@ -2,6 +2,7 @@
 
 import uuid
 from datetime import datetime
+time = "%Y-%m-%dT%H:%M:%S.%f"
 
 """Base Model Class Definition"""
 
@@ -38,13 +39,10 @@ class BaseModel:
         self.updated_at = datetime.now()
 
     def to_dict(self):
-        """
-        Converts the instance to a dictionary representation.
 
-
-        """
+        """returns a dictionary containing all keys/values of the instance"""
         my_dict = self.__dict__.copy()
-        my_dict['__class__'] = self.__class__.__name__
         my_dict['created_at'] = self.created_at.isoformat()
         my_dict['updated_at'] = self.updated_at.isoformat()
+        my_dict['__class__'] = self.__class__.__name__
         return my_dict
