@@ -20,19 +20,20 @@ class BaseModel:
                     setattr(self, key, value)
         else:
             """
-            Generate UUID for id then set created_at and updated_at to the current date and time
+            Generate UUID for id then set created_at
+            and updated_at to the current date and time
             """
             self.id = str(uuid.uuid4())
             self.created_at = self.updated_at = datetime.now()
 
     def __str__(self):
-        
+
         """ Returns the string representation of an instance. """
         return "[{}] ({}) {}".format(self.__class__.__name__,
                                      self.id, self.__dict__)
 
     def save(self):
-        
+
         """ Sets updated_at to current date and time. """
         self.updated_at = datetime.now()
 
@@ -40,7 +41,7 @@ class BaseModel:
         """
         Converts the instance to a dictionary representation.
 
-        
+
         """
         my_dict = self.__dict__.copy()
         my_dict['__class__'] = self.__class__.__name__
