@@ -2,7 +2,10 @@
 
 import uuid
 from datetime import datetime
+import models
+
 time = "%Y-%m-%dT%H:%M:%S.%f"
+
 
 """Base Model Class Definition"""
 
@@ -26,6 +29,8 @@ class BaseModel:
             """
             self.id = str(uuid.uuid4())
             self.created_at = self.updated_at = datetime.now()
+            models.storage.new(self)
+            models.storage.save()
 
     def __str__(self):
 
@@ -37,6 +42,7 @@ class BaseModel:
 
         """ Sets updated_at to current date and time. """
         self.updated_at = datetime.now()
+        models.storage.save()
 
     def to_dict(self):
 
