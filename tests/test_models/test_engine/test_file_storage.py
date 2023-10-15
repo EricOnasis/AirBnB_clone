@@ -68,7 +68,7 @@ class TestFileStorage(unittest.TestCase):
 
     def test_to_dict_method(self):
         """
-        Test if the to_dict method returns a dictionary representation of the instance
+        Test if the to_dict method returns a dict representation
         """
         expected_dict = {
             'id': self.model.id,
@@ -77,8 +77,6 @@ class TestFileStorage(unittest.TestCase):
             '__class__': self.model.__class__.__name__
         }
         self.assertEqual(self.model.to_dict(), expected_dict)
-
-
 
 
 if __name__ == '__main__':
