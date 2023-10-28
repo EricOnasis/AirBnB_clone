@@ -1,0 +1,22 @@
+.amenities{
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+.locations{
+    width: 25%;
+    height: 100%;
+    float: left;
+    border-right: 1px solid #DDDDDD;
+}
+.locations h3{
+    text-align: justify;
+    font-weight: 600;
+}
+.amenities h3{
+    font-weight: 600;
+}
+.locations h4, .amenities h4{
+    font-weight: 400;
+    font-size: 14px;
+}
